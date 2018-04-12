@@ -13,17 +13,29 @@ var playerTwoName = '';
 var chipHTML = '<div class="chip"></div>'; 
 
 // Variables that point to different DOM elements
-var chipContainer =    document.getElementById('chips');
-var playerOneChipsContainer =   document.getElementById('player-one-chips');
-var playerTwoChipsContainer =   document.getElementById('player-two-chips');
-var playerOneTake =    document.getElementById('player-one-take');
-var playerTwoTake =    document.getElementById('player-two-take');
-var playerOnePass =    document.getElementById('player-one-pass');
-var playerTwoPass =    document.getElementById('player-two-pass');
-var playerOneOptions = document.getElementById('player-one-options');
-var playerTwoOptions = document.getElementById('player-two-options');
-var playerOneName =    document.getElementById('player-one-name');
-var playerTwoName =    document.getElementById('player-two-name');
+  // var chipContainer =    document.getElementById('chips');
+  var chipContainer = $('#chips')
+  // var playerOneChipsContainer =   document.getElementById('player-one-chips');
+  var playerOneChipsContainer = $('#player-one-chips')
+  // var playerTwoChipsContainer =   document.getElementById('player-two-chips');
+  var playerTwoChipsContainer = $('#player-two-chips')
+  // var playerOneTake =    document.getElementById('player-one-take');
+  var playerOneTake = $('#player-one-take');
+  // var playerTwoTake =    document.getElementById('player-two-take');
+  var playerTwoTake = $('#player-two-take');
+  // var playerOnePass =    document.getElementById('player-one-pass');
+  var playerOnePass = $('#player-one-pass');
+  // var playerTwoPass =    document.getElementById('player-two-pass');
+  var playerTwoPass = $('#player-two-pass');
+  // var playerOneOptions = document.getElementById('player-one-options');
+  var playerOneOptions = $('#player-one-options');
+  // var playerTwoOptions = document.getElementById('player-two-options');
+  var playerTwoOptions = $('#player-two-options');
+  // var playerOneName =    document.getElementById('player-one-name');
+  var playerOneName = $('#player-one-name');
+  // var playerTwoName =    document.getElementById('player-two-name');
+  var playerTwoName = $('#player-two-name');
+
 
 //*****************
 // ACTIONS
@@ -31,31 +43,31 @@ var playerTwoName =    document.getElementById('player-two-name');
 
 function renderGame() {
   // First, draw all the chips into the right containers
-  chipContainer.innerHTML = '';
-  playerOneChipsContainer.innerHTML = '';
-  playerTwoChipsContainer.innerHTML = '';
+  chipContainer.html('');
+  playerOneChipsContainer.html('');
+  playerTwoChipsContainer.html('');
   for (var i=0; i<chips; i++) {
-    chipContainer.innerHTML += chipHTML
+    chipContainer.append(chipHTML);
   };
   for (var i=0; i<playerOneChips; i++) {
-    playerOneChipsContainer.innerHTML += chipHTML
+    playerOneChipsContainer.append(chipHTML);
   };
   for (var i=0; i<playerTwoChips; i++) {
-    playerTwoChipsContainer.innerHTML += chipHTML
+    playerTwoChipsContainer.append(chipHTML);
   };
 
   // Show/Hide the appropriate action buttons
   if (currentPlayer == 1) {
-    playerOneOptions.style.visibility = "visible"; 
-    playerTwoOptions.style.visibility = "hidden"; 
+    playerOneOptions.css("visibility", "visible"); 
+    playerTwoOptions.css("visibility", "hidden"); 
   } else {
-    playerOneOptions.style.visibility = "hidden"; 
-    playerTwoOptions.style.visibility = "visible"; 
+    playerOneOptions.css("visibility", "hidden"); 
+    playerTwoOptions.css("visibility", "visible"); 
   }
 
   // Show the name of each player
-  playerOneName.innerHTML = playerOne;
-  playerTwoName.innerHTML = playerTwo;
+  playerOneName.html(playerOne);
+  playerTwoName.html(playerTwo);
 }
 
 function takeChip() {
@@ -107,21 +119,21 @@ function resetGame() {
 //***********************
 //  KICKING IT ALL OFF
 //***********************
-playerOneTake.onclick = function () {
+$('#player-one-take').click(function(){
   takeChip();
-}
+});
 
-playerTwoTake.onclick = function() {
+$('#player-two-take').click(function() {
   takeChip();
-}
+});
 
-playerOnePass.onclick = function() {
+$('#player-one-pass').click(function() {
   pass();
-}
+});
 
-playerTwoPass.onclick = function() {
+$('#player-two-pass').click(function() {
   pass();
-}
+});
 
 
 
